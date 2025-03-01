@@ -20,7 +20,7 @@
 git clone https://github.com/username/meme-analyzer.git
 cd meme-analyzer
 pip install -r requirements.txt
-streamlit run app.py
+streamlit run main.py
 ```
 
 ## 👥 Команда
