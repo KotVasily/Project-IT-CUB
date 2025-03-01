@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 import time
 import warnings
+import datetime
 
 from full_parser import get_data
 from google import genai
@@ -94,7 +95,7 @@ def get_responce(content):
         st.session_state.ai_mem = response.text 
 
 # Фильтрация данных       
-year = st.number_input("Введите год:", value=2024, step=1, max_value=2025, min_value=2023)
+year = st.number_input("Введите год:", value=2024, step=1, max_value=datetime.datetime.now().year, min_value=2021)
 filter_num = st.number_input("Введите порог views:", value=0, step=1)
 type_plot = st.selectbox("Тип диаграммы:", options=['Гистограмма', 'Линейная'], key='lineplot')
 
