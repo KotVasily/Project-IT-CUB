@@ -37,7 +37,15 @@ def load_data(year):
         df_mem = pd.read_csv(f"mem_csv/data_{year}.csv")
         df = pd.read_csv(f"mem_csv/wordstat_{year}.csv")
         return df, df_mem
-
+        
+def generate_context():
+    current_year = datetime.datetime.now().year
+    _, df_mem1 = load_data(current_year)
+    _, df_mem2 = load_data(current_year)
+    base_mem = pd.concat([df_mem1, df_mem2])
+    content = "\n".join(base_mem['content'].values.tolist())
+    return content
+    
 def analyze_image():
     """Анализ изображений"""
     if not API_KEY:
@@ -51,7 +59,7 @@ def analyze_image():
                 data=st.session_state.image_data, 
                 mime_type="image/jpeg" 
             )
-
+            content = generate_context() 
             response = client.models.generate_content(
                 model="gemini-2.0-flash",
                 contents=[f"Классифицируй мем по картинки (формат ответа: только название мема и его описание не более 20 слов): \n Возможные варианты с описанием: {content}. Подумай шаг за шагом. Это очень важно", image_part],
