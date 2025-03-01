@@ -43,7 +43,7 @@ def generate_context():
     _, df_mem1 = load_data(current_year)
     _, df_mem2 = load_data(current_year-1)
     base_mem = pd.concat([df_mem1, df_mem2])
-    content = "\n".join(base_mem['content'].values.tolist())
+    content = "\n\n".join(base_mem['content'].values.tolist())
     return content
     
 def analyze_image():
