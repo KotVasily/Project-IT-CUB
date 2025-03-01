@@ -34,4 +34,4 @@ streamlit run main.py
 - 4 ненужных сокомандика
 
 
-## (Приложения)[https://project-it-cub-hxfanfktwfs8oeb7nmcuql.streamlit.app/]
+## [Приложения](https://project-it-cub-hxfanfktwfs8oeb7nmcuql.streamlit.app/)
