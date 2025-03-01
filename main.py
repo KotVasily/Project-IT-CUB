@@ -59,10 +59,9 @@ def analyze_image():
                 data=st.session_state.image_data, 
                 mime_type="image/jpeg" 
             )
-            content = generate_context() 
             response = client.models.generate_content(
                 model="gemini-2.0-flash",
-                contents=[f"Классифицируй мем по картинки (формат ответа: только название мема и его описание не более 20 слов): \n Возможные варианты с описанием: {content}. Подумай шаг за шагом. Это очень важно", image_part],
+                contents=[f"Классифицируй мем по картинки (формат ответа: только название мема и его описание не более 20 слов): \n Возможные варианты с описанием: {generate_context()}. Подумай шаг за шагом. Это очень важно", image_part],
                 config=types.GenerateContentConfig(
                     max_output_tokens=500,
                     temperature=1,
