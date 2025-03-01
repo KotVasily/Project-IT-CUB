@@ -2,11 +2,13 @@ from parser.parser_mem import load_mem
 from parser.wordstat_parser import create_driver, load_cookie, load_wordstat
 
 def check_short_words(word_list):
+    """Проверяем короткие слова"""
     if len(word_list) != 2:  
         return False
     return any(len(word) <= 2 for word in word_list)  
 
 def get_data(year):
+    """Парсим данные."""
     data_mem = load_mem(year=year)
     data_mem = data_mem[
         (data_mem['title'].str.strip().str.split().str.len() > 1) & 
