@@ -41,7 +41,7 @@ def load_data(year):
 def generate_context():
     current_year = datetime.datetime.now().year
     _, df_mem1 = load_data(current_year)
-    _, df_mem2 = load_data(current_year)
+    _, df_mem2 = load_data(current_year-1)
     base_mem = pd.concat([df_mem1, df_mem2])
     content = "\n".join(base_mem['content'].values.tolist())
     return content
