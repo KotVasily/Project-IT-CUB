@@ -53,21 +53,21 @@ def analyze_image():
 
             response = client.models.generate_content(
                 model="gemini-2.0-flash",
-                contents=["Опиши изображение и скажи что на нем написано", image_part],
+                contents=[f"Классифицируй мем по картинки (формат ответа: только название мема и его описание не более 20 слов): \n Возможные варианты с описанием: {content}. Подумай шаг за шагом. Это очень важно", image_part],
                 config=types.GenerateContentConfig(
                     max_output_tokens=500,
                     temperature=1,
                     top_p=0.95,
                     top_k=40))
-            text = response.text
-            response = client.models.generate_content(
-                model="gemini-2.0-flash",
-                contents=[f"Классифицируй мем по описанию картинки (формат ответа: только название мема и его описание не более 20 слов): {text} \n Возможные варианты с описанием: {content}. Подумай шаг за шагом. Это очень важно"],
-                config=types.GenerateContentConfig(
-                    max_output_tokens=500,
-                    temperature=1,
-                    top_p=0.95,
-                    top_k=40))
+            #text = response.text
+            #response = client.models.generate_content(
+            #    model="gemini-2.0-flash",
+            #    contents=[f"Классифицируй мем по описанию картинки (формат ответа: только название мема и его описание не более 20 слов): {text} \n Возможные варианты с описанием: {content}. Подумай шаг за шагом. Это очень важно"],
+            #    config=types.GenerateContentConfig(
+            #        max_output_tokens=500,
+            #        temperature=1,
+            #        top_p=0.95,
+            #        top_k=40))
             
             st.session_state.gemini_response = response.text
         
