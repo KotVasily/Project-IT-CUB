@@ -32,3 +32,6 @@ streamlit run main.py
 ## 👥 Команда
 - Я, Марк Дядченко
 - 4 ненужных сокомандика
+
+
+## Приложения - https://project-it-cub-hxfanfktwfs8oeb7nmcuql.streamlit.app/
