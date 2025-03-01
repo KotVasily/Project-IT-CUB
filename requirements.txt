@@ -1,0 +1,7 @@
+streamlit
+pandas
+plotly
+google-genai
+selenium
+beautifulsoup4
+cloudscraper
